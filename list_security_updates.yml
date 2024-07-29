@@ -1,0 +1,16 @@
+---
+- name: List all security updates
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update the apt cache
+      apt:
+        update_cache: yes
+
+    - name: List all security updates
+      shell: apt list --upgradable | grep -i security
+      register: security_updates
+
+    - name: Display security updates
+      debug:
+        msg: "{{ security_updates.stdout_lines }}"
