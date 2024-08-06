@@ -1,0 +1,6 @@
+- hosts: document.it360.cloud
+  roles:
+    - role: Shir0kamii.letsencrypt
+  vars:
+    - letsencrypt_domains:
+        - document.it360.cloud

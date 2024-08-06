@@ -1,0 +1,4 @@
+- hosts: webserer
+  sudo: yes
+  roles:
+    -  role: monit, monit_services: [ httpd ], monit_webinterface_port: 80 

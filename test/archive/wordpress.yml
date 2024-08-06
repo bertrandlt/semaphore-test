@@ -1,0 +1,9 @@
+- hosts: vpn
+  vars:
+    wp_version: 4.0
+    wp_db_name: 'it360-db'
+    wp_db_user: 'it360'
+    wp_db_password: 'it360pass'
+    wp_db_host: 'localhost'
+  roles:
+  - darthwade.wordpress

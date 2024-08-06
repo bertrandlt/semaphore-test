@@ -1,0 +1,7 @@
+---
+# test file for vitalied.ufw
+
+- hosts: localhost
+  remote_user: root
+  roles:
+    - ansible-role-ufw

@@ -1,0 +1,19 @@
+- hosts: groupenyss
+  roles:
+    - role: vitalied.ufw
+      ufw:
+        - { interface: "lo", direction: "in", rule: "allow" }
+        - { from_ip: "224.0.0.0/4", rule: "allow" }
+        - { from_ip: "10.0.0.0/8", rule: "allow" }
+        - { from_ip: "172.16.0.0/12", rule: "allow" }
+        - { from_ip: "192.168.0.0/16", rule: "allow" }
+        - { to_port: "22", proto: "tcp", rule: "allow" }
+        - { to_port: "80", proto: "tcp", rule: "allow" }
+        - { to_port: "443", proto: "tcp", rule: "allow" }
+    #    - { to_port: "8140", proto: "tcp", rule: "allow" }
+    #    - { to_port: "1024:65535", proto: "tcp", rule: "allow" }
+        - { direction: "incoming", policy: "deny" }
+        - { direction: "outgoing", policy: "allow" }
+        - { direction: "routed", policy: "allow" }
+        - { logging: "on" }
+        - { state: "enabled" }

@@ -1,0 +1,14 @@
+[main]
+certname = {{ puppet_node_name }}
+environment = {{ puppet_environment }}
+
+[master]
+vardir = /opt/puppetlabs/server/data/puppetserver
+logdir = /var/log/puppetlabs/puppetserver
+rundir = /var/run/puppetlabs/puppetserver
+pidfile = /var/run/puppetlabs/puppetserver/puppetserver.pid
+codedir = /etc/puppetlabs/code
+autosign = {{ puppetserver_autosign }}
+{% for key, value in puppetserver_extra_options.items() %}
+{{ key }} = {{ value }}
+{% endfor %}

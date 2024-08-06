@@ -1,0 +1,21 @@
+- hosts: webserver 
+  roles:
+    - pgolm.monit
+  vars:
+    monit_cycle: 60
+    monit_webinterface_enabled: true
+    monit_webinterface_port: 2812
+    monit_services:
+      - name: php5-fpm
+        type: process
+        target: /var/run/php5-fpm.pid
+        start: "/etc/init.d/php5-fpm start"
+        stop: "/etc/init.d/php5-fpm stop"
+      - name: mysql
+        type: process
+        target: /var/run/mysqld/mysqld.pid
+        start: "/etc/init.d/mysql start"
+        stop: "/etc/init.d/mysql stop"
+        rules:
+          -  "if totalcpu > 80% for 3 cycles then alert"
+          -  "if totalcpu > 80% for 6 cycles then restart"

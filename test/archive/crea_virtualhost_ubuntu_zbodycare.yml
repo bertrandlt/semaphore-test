@@ -1,0 +1,15 @@
+- hosts: zbodycare
+  roles:
+    - viasite-ansible.apache-vhosts
+  vars:
+    apache_vhosts_sites:
+      demo.zbodycare.fr:
+        servername: "demo.zbodycare.fr"
+        documentroot: "/var/www/html/zbodycare"
+      zbodycare.fr:
+        servername: "www.zbodycare.fr"
+        serveralias: "zbodycare.fr"
+        documentroot: "/var/www/html/zbodycare.fr"
+        extra_parameters: |
+          RewriteCond %{HTTP_HOST} !^www\. [NC]
+          RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]        

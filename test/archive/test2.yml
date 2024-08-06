@@ -1,0 +1,5 @@
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: echo test
+    shell: echo test

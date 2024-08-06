@@ -1,0 +1,3 @@
+- hosts: zbodycare
+  roles:
+    - { role: shakahl.ansible-phpmyadmin }

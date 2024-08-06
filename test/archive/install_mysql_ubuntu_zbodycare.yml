@@ -1,0 +1,4 @@
+- hosts: zbodycare
+  roles:
+    - role: geerlingguy.mysql
+      become: yes

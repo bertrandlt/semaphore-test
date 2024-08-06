@@ -1,0 +1,31 @@
+---
+galaxy_info:
+  author: memiah
+  description: MySQL to Amazon S3 backup.
+  company: "Memiah Limited"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 1.9
+  platforms:
+  - name: EL
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  galaxy_tags:
+    - web
+    - mysql
+    - backup
+    - aws
+    - amazon
+dependencies:
+  - role: memiah.aws-cli
+    aws_cli_profile: "{{ mysql_backup_aws_profile }}"
+    aws_cli_access_key: "{{ mysql_backup_aws_access_key }}"
+    aws_cli_secret_key: "{{ mysql_backup_aws_secret_key }}"
+    aws_cli_region: "{{ mysql_backup_aws_region }}"
+    aws_cli_format: "{{ mysql_backup_aws_format }}"
+    aws_cli_system_user: "{{ mysql_backup_system_user }}"

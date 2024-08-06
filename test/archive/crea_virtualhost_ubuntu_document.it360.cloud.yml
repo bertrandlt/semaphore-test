@@ -1,0 +1,50 @@
+- hosts: document.it360.cloud
+  roles:
+    - viasite-ansible.apache-vhosts
+  vars:
+    apache_vhosts_sites:
+      #demo.ecolefootball-eac.com:
+        #servername: "demo.ecolefootball-eac.com"
+        #documentroot: "/var/www/html/demo"
+      ecolefootball-eac.com:
+        servername: "www.ecolefootball-eac.com"
+        serveralias: "ecolefootball-eac.com"
+        documentroot: "/var/www/html/ecolefootball-eac.com"
+        #extra_parameters: |
+        #  RewriteCond %{HTTP_HOST} !^www\. [NC]
+        #  RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+      acrnyamga.org:
+        servername: "www.acrnyamga.org"
+        serveralias: "acrnyamga.org"
+        documentroot: "/var/www/html/acrnyamga.org"
+        #extra_parameters: |
+        #  RewriteCond %{HTTP_HOST} !^www\. [NC]
+        #  RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+      groupenyss.com:
+        servername: "www.groupenyss.com"
+        serveralias: "groupenyss.com"
+        documentroot: "/var/www/html/groupenyss.com"
+        #extra_parameters: |
+        #  RewriteCond %{HTTP_HOST} !^www\. [NC]
+        #  RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+      alacam.be:
+        servername: "www.alacam.be"
+        serveralias: "alacam.be"
+        documentroot: "/var/www/html/alacam.be"
+        #extra_parameters: |
+         # RewriteCond %{HTTP_HOST} !^www\. [NC]
+         # RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+      ecologicalmuseum.org:
+        servername: "www.ecologicalmuseum.org"
+        serveralias: "ecologicalmuseum.org"
+        documentroot: "/var/www/html/ecologicalmuseum.org"
+        #extra_parameters: |
+         # RewriteCond %{HTTP_HOST} !^www\. [NC]
+         # RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+      restaurant-lagazelle.fr:
+        servername: "www.restaurant-lagazelle.fr"
+        serveralias: "restaurant-lagazelle.fr"
+        documentroot: "/var/www/html/restaurant-lagazelle.fr"
+        #extra_parameters: |
+         # RewriteCond %{HTTP_HOST} !^www\. [NC]
+         # RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]  

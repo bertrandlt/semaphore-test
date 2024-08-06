@@ -1,0 +1,23 @@
+---
+- hosts: groupenyss
+
+  vars:
+    letsencrypt_email: info@it360.cloud
+    letsencrypt_domain: webserver.groupenyss.com
+    letsencrypt_pause_services:
+      - apache2
+    letsencrypt_test: true
+    letsencrypt_test_expected_args:
+      - --renew-by-default
+      - certonly
+      - --standalone
+      - --expand
+      - --text
+      - -n
+      - --no-self-upgrade
+      - -m 'info@it360.cloud'
+      - --agree-tos
+      - --domains webserver.groupenyss.com,www.webserver.groupenyss.com,demo.groupenyss.com,groupenyss.com,www.groupenyss.com
+
+  roles:
+    - jaywink.letsencrypt

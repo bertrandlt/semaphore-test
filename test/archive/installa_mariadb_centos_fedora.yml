@@ -1,0 +1,21 @@
+- hosts: localweb
+  become: true
+  vars:
+    mariadb_bind_address: '0.0.0.0'
+    mariadb_databases:
+      - Db-AnsibleTest1
+      - Db-AnsibleTest
+    mariadb_root_password: progetti
+    mariadb_users:
+      - name: appusr
+        password: sekrit
+        priv: "Db-AnsibleTest1.*:ALL,GRANT"
+        host: "192.168.1.%"
+      - name: otheruser
+        password: letmein
+        priv: "Db-AnsibleTest.*:ALL"
+    mariadb_init_scripts:
+      - database: Db-AnsibleTest1
+        script: /etc/ansible/roles/bertvv.mariadb/importadb/importa-db.sql #  Importazione Database
+  roles:
+    - bertvv.mariadb

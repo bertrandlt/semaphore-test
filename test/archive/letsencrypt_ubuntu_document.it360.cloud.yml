@@ -1,0 +1,4 @@
+- hosts: document.it360.cloud
+  become: true
+  roles:
+    - SoInteractive.letsencrypt

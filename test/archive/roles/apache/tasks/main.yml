@@ -1,0 +1,6 @@
+---
+# tasks file for apache
+- include: install.yml
+- include: configure.yml
+- include: firewall.yml
+- include: service.yml

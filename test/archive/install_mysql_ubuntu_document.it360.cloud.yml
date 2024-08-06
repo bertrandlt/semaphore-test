@@ -1,0 +1,4 @@
+- hosts: document.it360.cloud
+  roles:
+    - role: geerlingguy.mysql
+      become: yes

@@ -1,0 +1,15 @@
+- hosts: groupenyss
+  roles:
+    - viasite-ansible.apache-vhosts
+  vars:
+    apache_vhosts_sites:
+      demo.groupenyss.com:
+        servername: "demo.groupenyss.com"
+        documentroot: "/var/www/html/groupenyss"
+      groupenyss.com:
+        servername: "www.groupenyss.com"
+        serveralias: "groupenyss.com"
+        documentroot: "/var/www/html/groupenyss.com"
+        #extra_parameters: |
+         # RewriteCond %{HTTP_HOST} !^www\. [NC]
+         # RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]        

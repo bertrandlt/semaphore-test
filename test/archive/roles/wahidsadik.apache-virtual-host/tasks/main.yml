@@ -1,0 +1,38 @@
+---
+- debug: msg="website = {{website}}"
+- debug: msg="template = {{template}}"
+- debug: msg="add_www = {{add_www}}"
+- debug: msg="disable_default_site = {{disable_default_site}}"
+- debug: msg="certbot_tls = {{certbot_tls}}"
+
+
+- name: Copy virtual-host config file for {{website}}
+  template: src={{template}}.j2 dest=/etc/apache2/sites-available/{{website}}.conf
+  become: true
+
+- name: Enable virtual host - {{ website }}
+  command: a2ensite {{ website }}.conf
+  notify:
+    - Restart apache2
+  become: true
+
+- name: Disable default site
+  shell: a2dissite 000-default.conf
+  become: true
+  when: disable_default_site
+  notify:
+    - Restart apache2
+
+- name: Disable default site
+  shell: a2dissite default-ssl.conf
+  become: true
+  when: disable_default_site
+  notify:
+    - Restart apache2
+
+- name: Install letsencrypt/certbot-auto TLS
+  command: certbot-auto --apache --agree-tos --email {{certbot_tos_email}} --domain {{website}} --redirect --quiet
+  become: true
+  when: certbot_tls
+  notify:
+    - Restart apache2

@@ -1,0 +1,3 @@
+# demarrage du service Apache
+- name: demarrage du service Apache
+  service: name=httpd state=started

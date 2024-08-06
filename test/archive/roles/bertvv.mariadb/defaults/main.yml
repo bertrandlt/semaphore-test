@@ -1,0 +1,10 @@
+# roles/mariadb/defaults/main.yml
+---
+
+mariadb_databases: []
+mariadb_users: []
+mariadb_root_password: 'xolooti'
+
+mariadb_bind_address: '127.0.0.1'
+
+mariadb_init_scripts: []

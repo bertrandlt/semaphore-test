@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Ben Batschelet
+  description: A simple role for creating either MySQL administrators or databases & owners
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+  galaxy_tags:
+  - database
+  - sql
+  - mysql
+dependencies:
+  - bbatsche.MySQL-Install

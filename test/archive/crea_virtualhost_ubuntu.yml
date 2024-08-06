@@ -1,0 +1,9 @@
+---
+- hosts: vpn
+  remote_user: root
+  roles:
+  - {
+      role: wahidsadik.apache-virtual-host,
+      website: it360.cloud,
+      template: basic
+    }

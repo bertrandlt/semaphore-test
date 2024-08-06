@@ -1,0 +1,8 @@
+---
+# handlers file for vitalied.ufw
+
+- name: reload ufw
+  ufw:
+    state: "{{ item.state }}"
+  with_items:
+    - { state: "reloaded" }

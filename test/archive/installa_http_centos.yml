@@ -1,0 +1,15 @@
+---
+- hosts: linuxtest
+  become: true
+  vars:
+    httpd_scripting: 'php'
+  roles:
+    - bertvv.httpd
+  post_tasks:
+    - name: Install demo php script
+      lineinfile:
+        dest: /var/www/html/index.php
+        line: '<?php phpinfo(); ?>'
+        regexp: '^<\?php'
+        create: yes
+

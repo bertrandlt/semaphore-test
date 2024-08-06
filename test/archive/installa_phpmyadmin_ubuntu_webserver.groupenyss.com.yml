@@ -1,0 +1,3 @@
+- hosts: groupenyss
+  roles:
+    - { role: shakahl.ansible-phpmyadmin }

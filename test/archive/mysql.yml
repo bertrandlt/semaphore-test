@@ -1,0 +1,18 @@
+##
+# Example Ansible playbook that uses the MySQL module.
+#
+
+---
+- hosts: owncloud1
+  remote_user: root
+
+  tasks:
+
+    - name: Create database user
+      mysql_user: user=auto password=12345 priv=*.*:ALL state=present
+
+    - name: Create database
+      mysql_db: db=autodabtabase state=present
+
+    - name: Ensure no user named 'sally' exists and delete if found.
+      mysql_user: user=sally state=absent

@@ -1,0 +1,8 @@
+# configuration de http.conf et envoie du fichier html
+- name: fichier http.conf
+  copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
+  notify: 
+   - restart apache service
+
+- name: envoie du fichier index.html
+  copy: src=index.html dest=/var/www/html/index.html

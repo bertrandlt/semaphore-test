@@ -1,0 +1,4 @@
+- hosts: groupenyss
+  roles:
+    - role: geerlingguy.mysql
+      become: yes

@@ -1,0 +1,5 @@
+- hosts: zbodycare
+  sudo: True
+  roles:
+       - { role: yauh.lamp, tags: lamp}
+
